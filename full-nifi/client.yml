@@ -1,4 +1,4 @@
-hosts: [pontus-sandbox.pontusvision.com]
+hosts: [graphdb-nifi]
 
 port: 8183
 
