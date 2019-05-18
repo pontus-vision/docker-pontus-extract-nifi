@@ -1,6 +1,6 @@
 FROM pontusvisiongdpr/pontus-track-graphdb-base:latest as builder
 
-RUN git clone  --depth 1 --single-branch --branch master https://github.com/pontusvision/pontus-nifi-processors.git
+RUN git clone   --depth 1 --single-branch --branch master https://github.com/pontusvision/pontus-nifi-processors.git
 RUN cd pontus-nifi-processors && \
     mvn clean package -U -DskipTests
 
