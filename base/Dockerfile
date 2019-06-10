@@ -18,6 +18,14 @@ RUN git clone  --depth 1 --single-branch  --branch master https://github.com/pon
     cd nifi-addons/Processors && \
     mvn clean install -U -DskipTests
 
+RUN git clone  --depth 1 --single-branch  --branch master https://github.com/pontus-vision/pontus-nifi-processors-office365.git && \
+    cd pontus-nifi-processors-office365 && \
+    mvn clean install -U -DskipTests
+
+RUN git clone   --depth 1 --single-branch  --branch master https://github.com/pontus-vision/pontus-nifi-processors-salesforce.git && \
+    cd pontus-nifi-processors-salesforce && \
+    mvn clean install -U -DskipTests
+
 
 
 FROM alpine
@@ -25,5 +33,6 @@ RUN mkdir -p /opt/nifi/nifi-current/lib
 COPY --from=builder /pontus-nifi-processors/*/*/target/*.nar /opt/nifi/nifi-current/lib/
 COPY --from=builder /nifi-nlp-processor/nifi-nlp-nar/target/*.nar /opt/nifi/nifi-current/lib/
 COPY --from=builder /nifi-addons/Processors/*/*/target/*.nar /opt/nifi/nifi-current/lib/
-COPY --from=builder /nifi-addons/Processors/*/*controller*/target/*ar /opt/nifi/nifi-current/lib/
+COPY --from=builder /pontus-nifi-processors-office365/*/target/*nar /opt/nifi/nifi-current/lib/
+COPY --from=builder /pontus-nifi-processors-salesforce/*/target/*nar /opt/nifi/nifi-current/lib/
 COPY --from=builder /other-deps/mysql-connector-java-8.0.16/mysql-connector-java-8.0.16.jar /opt/nifi/nifi-current/lib/
