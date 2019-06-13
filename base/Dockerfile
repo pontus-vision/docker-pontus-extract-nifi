@@ -18,7 +18,7 @@ RUN git clone  --depth 1 --single-branch  --branch master https://github.com/pon
     cd nifi-addons/Processors && \
     mvn clean install -U -DskipTests
 
-RUN git clone  --depth 1 --single-branch  --branch master https://github.com/pontus-vision/pontus-nifi-processors-office365.git && \
+RUN git clone --depth 1 --single-branch   --branch master https://github.com/pontus-vision/pontus-nifi-processors-office365.git && \
     cd pontus-nifi-processors-office365 && \
     mvn clean install -U -DskipTests
 
