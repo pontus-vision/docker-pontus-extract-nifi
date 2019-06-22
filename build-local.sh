@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 cd $DIR/base
 docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi-base 
