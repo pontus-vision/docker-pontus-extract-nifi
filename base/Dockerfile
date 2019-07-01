@@ -32,11 +32,9 @@ RUN cd / && \
 #    mvn clean install -U -DskipTests
 #
 
-FROM pontusvisiongdpr/pontus-nifi-gremlin-lib as gremlin
-
 FROM alpine
 RUN   mkdir -p /opt/nifi/nifi-current/lib
-COPY --from=gremlin /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
+COPY --from=pontusvisiongdpr/pontus-nifi-gremlin-lib /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
 COPY --from=pontusvisiongdpr/pontus-nifi-processors-nlp-lib /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
 COPY --from=pontusvisiongdpr/pontus-nifi-addons-lib /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
 COPY --from=pontusvisiongdpr/pontus-nifi-processors-office365-lib /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
