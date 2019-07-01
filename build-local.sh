@@ -6,7 +6,7 @@ cd $DIR/base
 docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi-base 
 
 cd $DIR/full-nifi
-docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi
+docker build --no-cache --rm . -t pontusvisiongdpr/pontus-extract-nifi
 
 cd $DIR/full-minifi
 docker build --rm . -t pontusvisiongdpr/pontus-extract-minifi
