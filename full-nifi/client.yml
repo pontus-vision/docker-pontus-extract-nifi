@@ -6,7 +6,7 @@ nioPoolSize: 10
 workerPoolSize: 8
 
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0,
-              config: { serializeResultToString: true , ioRegistries: [org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerIoRegistryV1d0, org.janusgraph.graphdb.tinkerpop.JanusGraphIoRegistry] ,  useMapperFromGraph: graph}}
+              config: { serializeResultToString: true , ioRegistries: [org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerIoRegistryV1d0 ] ,  useMapperFromGraph: graph}}
 
 connectionPool: {
   # Determines if SSL should be enabled or not. If enabled on the server then it must be enabled on the client.
