@@ -1,5 +1,6 @@
-FROM pontusvisiongdpr/pontus-extract-nifi-base:latest as builder
-FROM apache/nifi:1.9.2
+ARG NIFI_TAG=1.12.1
+FROM pontusvisiongdpr/pontus-extract-nifi-base:${NIFI_TAG} as builder
+FROM apache/nifi:${NIFI_TAG}
 USER root
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y groovy 
 USER nifi
