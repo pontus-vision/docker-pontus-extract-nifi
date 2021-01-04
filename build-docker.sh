@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
@@ -15,6 +15,7 @@ docker build --build-arg NIFI_TAG=${NIFI_TAG} --rm . -t pontusvisiongdpr/pontus-
 
 cd $DIR/mysql-demo
 docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi-mysql-demo
+
 
 
 #cd $DIR/full-minifi
