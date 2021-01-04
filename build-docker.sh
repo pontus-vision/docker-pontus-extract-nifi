@@ -8,11 +8,16 @@ docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi-base
 cd $DIR/full-nifi
 docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi
 
+cd $DIR/mysql-demo
+docker build --rm . -t pontusvisiongdpr/pontus-extract-nifi-mysql-demo
+
+
 #cd $DIR/full-minifi
 #docker build --rm . -t pontusvisiongdpr/pontus-extract-minifi
 
 docker push pontusvisiongdpr/pontus-extract-nifi-base
 docker push pontusvisiongdpr/pontus-extract-nifi
+docker push pontusvisiongdpr/pontus-extract-nifi-mysql-demo
 #docker push pontusvisiongdpr/pontus-extract-minifi
 
 
