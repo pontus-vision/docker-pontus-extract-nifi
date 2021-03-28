@@ -1,5 +1,5 @@
 FROM pontusvisiongdpr/pontus-graphdb-lib:latest as builder
-ARG NIFI_TAG=1.12.1
+ARG NIFI_TAG=1.13.2
 
 RUN cd / && \
     mkdir /other-deps && \
@@ -34,10 +34,12 @@ RUN cd / && \
 #
 
 FROM scratch
-COPY --from=pontusvisiongdpr/pontus-nifi-gremlin-lib:1.12.1 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
-COPY --from=pontusvisiongdpr/pontus-nifi-processors-nlp-lib:1.12.1 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
-COPY --from=pontusvisiongdpr/pontus-nifi-addons-lib:1.12.1 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
-COPY --from=pontusvisiongdpr/pontus-nifi-processors-office365-lib:1.12.1 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
-COPY --from=pontusvisiongdpr/pontus-nifi-processors-salesforce-lib:1.12.1 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
+
+COPY  --from=pontusvisiongdpr/pontus-nifi-gremlin-lib:1.13.2 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
+COPY  --from=pontusvisiongdpr/pontus-nifi-processors-nlp-lib:1.13.2 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
+COPY  --from=pontusvisiongdpr/pontus-nifi-addons-lib:1.13.2 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
+
+COPY --from=pontusvisiongdpr/pontus-nifi-processors-salesforce-lib:1.13.2 /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
 COPY --from=builder /other-deps/mysql-connector-java-8.0.16/mysql-connector-java-8.0.16.jar /opt/nifi/nifi-current/lib/
 COPY --from=builder /other-deps/postgresql-42.2.6.jar  /opt/nifi/nifi-current/lib/
+COPY --from=pontusvisiongdpr/pontus-nifi-processors-office365-lib:1.13.2  /opt/nifi/nifi-current/lib/* /opt/nifi/nifi-current/lib/
